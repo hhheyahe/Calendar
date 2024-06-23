@@ -1,0 +1,110 @@
+.calendar {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 16%;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.calendar header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid lightgray;
+}
+
+.calendar header button,
+.calendar header select {
+    margin: 0 4px;
+    border: none;
+    cursor: pointer;
+}
+
+.calendar header select {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.calendar header button {
+    background-color: transparent;
+    font-size: 16px;
+    color: lightgray;
+}
+
+.calendar table {
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: auto;
+}
+
+.calendar th {
+    vertical-align: middle;
+    text-align: center;
+    height: 36px;
+}
+
+.calendar .day {
+    padding: 4px 8px;
+    vertical-align: middle;
+    text-align: center;
+    border: 2px solid transparent;
+}
+
+.calendar .day:hover {
+    background-color: #eaeaea;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.calendar .day.selected {
+    border: 2px solid rgb(16, 124, 130);
+    border-radius: 8px;
+}
+
+.calendar .day.today {
+    background-color: rgb(16, 124, 130);
+    border-radius: 8px;
+    color: white;
+}
+
+.calendar .day.today:hover {
+    background-color: rgb(16, 124, 130);
+}
+
+.calendar .day.today.selected {
+    border: 2px solid lightgray;
+    border-radius: 8px;
+}
+
+.calendar footer {
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    justify-content: center;
+    justify-items: center;
+    border-top: 2px solid lightgray;
+    margin-top: 8px;
+    padding-top: 10px;
+    width: 100%;
+}
+
+.calendar footer button {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 2px solid lightgray;
+    border-radius: 8px;
+    background-color: transparent;
+    padding: 1% 7%;
+    margin: 5% 3% 0 0;
+    cursor: pointer;
+}
+
+.calendar footer button:active,
+.calendar footer button:hover {
+    color: white;
+    background-color: rgb(16, 124, 130);
+    border-color: rgb(16, 124, 130);
+}
+
+.calendar footer button:last-of-type {
+    margin-right: 0;
+}
