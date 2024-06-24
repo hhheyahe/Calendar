@@ -1,14 +1,25 @@
 import React from 'react';
 import dayjs from 'dayjs';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';
+
 import Calendar from './components/Calendar';
 
 class App extends React.Component {
     state = {
-        date: null
+        date: null,
+        isOpen: false
     };
 
     handleDateChange = date => this.setState({ date });
+
+    toggleModal = () => {
+        this.setState((prevState) => ({
+            isOpen: !prevState.isOpen,
+        }));
+    }
 
     render() {
         const { date } = this.state;
@@ -19,9 +30,16 @@ class App extends React.Component {
             // <div>
             //     {date && <p>Выбранная дата: {dayjs(date).format('YYYY-MM-DD')}</p>}
             <div>
-                {/* <Calendar
-                    onChange={this.handleDateChange}
-                /> */ <Calendar onChange={(selectedDates) => console.log(selectedDates)} />}
+                <FontAwesomeIcon
+                    className="calendarIcon"
+                    icon={['fas', 'calendar-days']}
+                    onClick={this.toggleModal}
+                    style={{ color: '#107c82' }}
+                />
+                <Calendar 
+                    onChange={(selectedDates) => console.log(selectedDates)}
+                    isOpen={this.state.isOpen}
+                />
             </div>
         );
     }
