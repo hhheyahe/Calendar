@@ -13,7 +13,8 @@ export default class Calendar extends React.Component {
         years: [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024],
         monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
         weekDayNames: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
-        onChange: Function.prototype
+        onChange: Function.prototype,
+        isOpen: false
     };
 
     state = {
@@ -143,8 +144,8 @@ export default class Calendar extends React.Component {
         const monthData = calendar.getMonthData(this.year, this.month);
 
         return (
-            <div className='modal'>
-                <div className="calendar">
+            <div className={this.props.isOpen ? 'modal active' : 'modal'}>
+                <div className={this.props.isOpen ? 'calendar active' : 'calendar'}>
                     <header>
                         <button onClick={this.handlePrevMonthButtonClick}>{'<'}</button>
 

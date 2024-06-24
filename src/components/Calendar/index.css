@@ -1,11 +1,40 @@
-.calendar {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    width: 16%;
-    box-sizing: border-box;
-    margin: 0 auto;
+.modal {
+    /* height: 100vh; */
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    /* transition: .5s; */
 }
 
-.calendar header {
+.modal.active {
+    opacity: 1;
+    /* pointer-events: all; */
+}
+
+.calendar {
+    padding: 20px;
+    border-radius: 12px;
+    background-color:white;
+    transition: .3s;
+    pointer-events: none;
+}
+
+.calendar.active {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* width: 16%; */
+    box-sizing: border-box;
+    margin: 0 auto;
+    pointer-events: all;
+}
+
+.calendar.active header {
     display: flex;
     justify-content: center;
     margin-bottom: 8px;
@@ -13,71 +42,71 @@
     border-bottom: 2px solid lightgray;
 }
 
-.calendar header button,
-.calendar header select {
+.calendar.active button,
+.calendar.active select {
     margin: 0 4px;
     border: none;
     cursor: pointer;
 }
 
-.calendar header select {
+.calendar.active header select {
     font-size: 14px;
     font-weight: bold;
 }
 
-.calendar header button {
+.calendar.active header button {
     background-color: transparent;
     font-size: 16px;
     color: lightgray;
 }
 
-.calendar table {
+.calendar.active table {
     table-layout: fixed;
     border-collapse: separate;
     border-spacing: 0;
     margin: auto;
 }
 
-.calendar th {
+.calendar.active th {
     vertical-align: middle;
     text-align: center;
     height: 36px;
 }
 
-.calendar .day {
+.calendar.active .day {
     padding: 4px 8px;
     vertical-align: middle;
     text-align: center;
     border: 2px solid transparent;
 }
 
-.calendar .day:hover {
+.calendar.active .day:hover {
     background-color: #eaeaea;
     cursor: pointer;
     border-radius: 8px;
 }
 
-.calendar .day.selected {
+.calendar.active .day.selected {
     border: 2px solid rgb(16, 124, 130);
     border-radius: 8px;
 }
 
-.calendar .day.today {
+.calendar.active .day.today {
     background-color: rgb(16, 124, 130);
     border-radius: 8px;
     color: white;
 }
 
-.calendar .day.today:hover {
+.calendar.active .day.today:hover {
     background-color: rgb(16, 124, 130);
 }
 
-.calendar .day.today.selected {
+.calendar.active .day.today.selected {
     border: 2px solid lightgray;
     border-radius: 8px;
 }
 
-.calendar footer {
+.calendar.active footer {
     display: grid;
     grid-template-columns: repeat(4, 25%);
     justify-content: center;
@@ -88,7 +117,7 @@
     width: 100%;
 }
 
-.calendar footer button {
+.calendar.active footer button {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     border: 2px solid lightgray;
     border-radius: 8px;
@@ -98,13 +127,13 @@
     cursor: pointer;
 }
 
-.calendar footer button:active,
-.calendar footer button:hover {
+.calendar.active footer button:active,
+.calendar.active footer button:hover {
     color: white;
     background-color: rgb(16, 124, 130);
     border-color: rgb(16, 124, 130);
 }
 
-.calendar footer button:last-of-type {
+.calendar.active footer button:last-of-type {
     margin-right: 0;
 }
