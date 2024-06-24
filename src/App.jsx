@@ -7,6 +7,8 @@ import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';
 
 import Calendar from './components/Calendar';
 
+import './index.css'
+
 library.add(faCalendarDays);
 
 class App extends React.Component {
