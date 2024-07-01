@@ -14,14 +14,16 @@ library.add(faCalendarDays);
 class App extends React.Component {
     state = {
         date: null,
-        isOpen: false
+        modalActive: true
+        // isOpen: false
     };
 
     handleDateChange = date => this.setState({ date });
 
     toggleModal = () => {
         this.setState((prevState) => ({
-            isOpen: !prevState.isOpen,
+            // isOpen: !prevState.isOpen,
+            modalActive: !prevState.modalActive
         }));
     }
 
@@ -38,11 +40,12 @@ class App extends React.Component {
                     className="calendarIcon"
                     icon={['fas', 'calendar-days']}
                     onClick={this.toggleModal}
-                    style={{ color: '#107c82' }}
                 />
                 <Calendar 
                     onChange={(selectedDates) => console.log(selectedDates)}
-                    isOpen={this.state.isOpen}
+                    // isOpen={this.state.isOpen}
+                    active={this.state.modalActive}
+                    setActive={this.toggleModal}
                 />
             </div>
         );
