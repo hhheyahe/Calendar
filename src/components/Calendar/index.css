@@ -23,7 +23,7 @@
     border-radius: 12px;
     background-color:white;
     transition: .3s;
-    pointer-events: none;
+    /* pointer-events: none; */
 }
 
 .calendar.active {
@@ -31,7 +31,7 @@
     /* width: 16%; */
     box-sizing: border-box;
     margin: 0 auto;
-    pointer-events: all;
+    /* pointer-events: all; */
 }
 
 .calendar.active header {
