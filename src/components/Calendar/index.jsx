@@ -14,6 +14,8 @@ export default class Calendar extends React.Component {
         monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
         weekDayNames: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
         onChange: Function.prototype,
+        active: false,
+        setActive: () => {}
         // isOpen: false
     };
 
@@ -143,14 +145,16 @@ export default class Calendar extends React.Component {
 
         const monthData = calendar.getMonthData(this.year, this.month);
 
-        const { active, setActive } = this.props;
+        // const { active, setActive } = this.props;
 
         return (
             <div 
-                className={active ? 'modal active' : 'modal'}
-                onClick={() => setActive(false)}
+                // className={active ? 'modal active' : 'modal'}
+                // onClick={() => setActive(false)}
+                className={this.props.active ? 'modal active' : 'modal'}
+                onClick={() => this.props.setActive(false)}
             >
-                <div className={active ? 'calendar active' : 'calendar'}>
+                <div className={this.props.active ? 'calendar active' : 'calendar'}>
                     <header>
                         <button onClick={this.handlePrevMonthButtonClick}>{'<'}</button>
 
