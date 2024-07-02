@@ -154,7 +154,11 @@ export default class Calendar extends React.Component {
                 className={this.props.active ? 'modal active' : 'modal'}
                 onClick={() => this.props.setActive(false)}
             >
-                <div className={this.props.active ? 'calendar active' : 'calendar'}>
+                <div
+                    className={this.props.active ? 'calendar active' : 'calendar'}
+
+                    onClick={(e) => e.stopPropagation()}
+                >
                     <header>
                         <button onClick={this.handlePrevMonthButtonClick}>{'<'}</button>
 
