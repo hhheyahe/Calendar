@@ -8,7 +8,6 @@ import './index.css';
 
 export default class Calendar extends React.Component {
     static defaultProps = {
-        // date: new Date(),
         date: dayjs(),
         years: [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024],
         monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
@@ -16,34 +15,27 @@ export default class Calendar extends React.Component {
         onChange: Function.prototype,
         active: false,
         setActive: () => {}
-        // isOpen: false
     };
 
     state = {
         date: this.props.date,
-        // currentDate: new Date(),
         currentDate: dayjs(),
-        // selectedDate: null
         selectedDates: []
     };
 
     get year() {
-        // return this.state.date.getFullYear();
         return this.state.date.year();
     }
 
     get month() {
-        // return this.state.date.getMonth();
         return this.state.date.month();
     }
 
     get day() {
-        // return this.state.date.getDate();
         return this.state.date.date();
     }
 
     handlePrevMonthButtonClick = () => {
-        // const date = new Date(this.year, this.month - 1);
         const date = this.state.date.subtract(1, 'month');
         this.setState({ date });
     };
