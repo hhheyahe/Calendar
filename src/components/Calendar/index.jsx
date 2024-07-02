@@ -15,7 +15,7 @@ export default class Calendar extends React.Component {
         weekDayNames: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
         onChange: Function.prototype,
         active: false,
-        setActive: () => {}
+        setActive: () => { }
     };
 
     state = {
@@ -58,10 +58,6 @@ export default class Calendar extends React.Component {
     };
 
     handleDayClick = date => {
-        // this.setState({ selectedDate: date});
-
-        // this.props.onChange(date);
-
         let selectedDates = [...this.state.selectedDates];
         const index = selectedDates.findIndex(d => calendar.areEqual(d, date));
 
@@ -76,12 +72,6 @@ export default class Calendar extends React.Component {
     }
 
     handleTodayButtonClick = () => {
-        // this.setState({
-        //     date: this.state.date,
-        //     selectedDates: [this.state.date]
-        // });
-        // this.props.onChange([this.state.date]);
-
         this.setState({
             date: dayjs(),
             selectedDates: [dayjs()]
@@ -111,13 +101,6 @@ export default class Calendar extends React.Component {
     }
 
     handleMonthButtonClick = () => {
-        // const selectedDates = [];
-
-        // selectedDates.push(this.state.date('month'));
-
-        // this.setState({ selectedDates });
-        // this.props.onChange(selectedDates);
-
         const selectedDates = [];
 
         const firstDayOfMonth = this.state.date.startOf('month');
@@ -132,18 +115,22 @@ export default class Calendar extends React.Component {
         this.props.onChange(selectedDates);
     }
 
+    componentDidUpdate(prevProps) {
+        if (!prevProps.active && this.props.active) {
+            this.setState({
+                selectedDates: []
+            });
+        }
+    }
+
     render() {
         const { years, monthNames, weekDayNames } = this.props;
         const { currentDate, selectedDate } = this.state;
 
         const monthData = calendar.getMonthData(this.year, this.month);
 
-        // const { active, setActive } = this.props;
-
         return (
-            <div 
-                // className={active ? 'modal active' : 'modal'}
-                // onClick={() => setActive(false)}
+            <div
                 className={this.props.active ? 'modal active' : 'modal'}
                 onClick={() => this.props.setActive(false)}
             >
@@ -191,18 +178,6 @@ export default class Calendar extends React.Component {
                             {monthData.filter(week => week.some(date => date)).map((week, index) =>
                                 <tr key={index} className='week'>
                                     {week.map((date, index) => date ?
-                                        // <td 
-                                        //     key={index} 
-                                        //     className={classnames('day', {
-                                        //         'today': calendar.areEqual(date, currentDate),
-                                        //         'selected': calendar.areEqual(date, selectedDate)
-                                        //     })}
-                                        //     onClick={() => this.handleDayClick(date)}
-                                        // // >{date.getDate()}</td>
-                                        // // >{date.format('D')}</td>
-                                        // >{date.date()}</td>
-                                        // :
-                                        // <td key={index}></td>
                                         <td
                                             key={index}
                                             className={classnames('day', {
