@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames'
-import * as dayjs from 'dayjs'
+import dayjs from 'dayjs'
 
 import * as calendar from './calendar'
 
