@@ -1,8 +1,5 @@
 import React from 'react';
-import classnames from 'classnames'
 import dayjs from 'dayjs'
-
-import * as calendar from './calendar'
 
 import './index.css';
 
@@ -24,18 +21,6 @@ export default class Calendar extends React.Component {
     selectedDates: []
   };
 
-  get year() {
-    return this.state.date.year();
-  }
-
-  get month() {
-    return this.state.date.month();
-  }
-
-  get day() {
-    return this.state.date.date();
-  }
-
   handleDateChange = (date, selectedDates) => {
     this.setState({ date, selectedDates });
   }
@@ -44,13 +29,13 @@ export default class Calendar extends React.Component {
     this.setState({ selectedDates: dates });
   }
 
-  componentDidUpdate(prevProps) {
-    if (!prevProps.active && this.props.active) {
-      this.setState({
-        selectedDates: []
-      })
-    }
-  }
+  // componentDidUpdate(prevProps) {
+  //   if (!prevProps.active && this.props.active) {
+  //     this.setState({
+  //       selectedDates: []
+  //     })
+  //   }
+  // }
 
   render() {
     return (
