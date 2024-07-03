@@ -28,10 +28,6 @@ class App extends React.Component {
         const { date } = this.state;
 
         return (
-            // <div>
-                // {date && <p>Выбранная дата: {date.toLocaleDateString()}</p>}
-            // <div>
-            //     {date && <p>Выбранная дата: {dayjs(date).format('YYYY-MM-DD')}</p>}
             <div className='app'>
                 <FontAwesomeIcon
                     className="calendarIcon"
