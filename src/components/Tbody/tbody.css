@@ -1,0 +1,46 @@
+.calendar.active table {
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: auto;
+}
+
+.calendar.active th {
+  vertical-align: middle;
+  text-align: center;
+  height: 36px;
+}
+
+.calendar.active .day {
+  padding: 4px 8px;
+  vertical-align: middle;
+  text-align: center;
+  border: 2px solid transparent;
+}
+
+.calendar.active .day:hover {
+  background-color: #eaeaea;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.calendar.active .day.selected {
+  border: 2px solid rgb(16, 124, 130);
+  border-radius: 8px;
+}
+
+.calendar.active .day.today {
+  background-color: rgb(16, 124, 130);
+  border-radius: 8px;
+  color: white;
+}
+
+.calendar.active .day.today:hover {
+  background-color: rgb(16, 124, 130);
+}
+
+.calendar.active .day.today.selected {
+  border: 2px solid lightgray;
+  border-radius: 8px;
+}
+
