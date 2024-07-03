@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import dayjs from "dayjs";
 
+import './footer.css'
+
 export default class Footer extends Component {
   static defaultProps = {
     date: dayjs(),
