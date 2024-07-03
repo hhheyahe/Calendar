@@ -4,7 +4,7 @@ import dayjs from 'dayjs'
 import './index.css';
 
 import Header from './Header/header';
-import Tbody from '../Tbody/tbody';
+import Tbody from './Tbody/tbody';
 import Footer from './Footer/footer';
 
 export default class Calendar extends React.Component {

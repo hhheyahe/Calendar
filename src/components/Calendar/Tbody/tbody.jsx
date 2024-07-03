@@ -3,8 +3,8 @@ import { Component } from "react";
 import classnames from 'classnames';
 import dayjs from "dayjs";
 
-import Thead from "../Calendar/Thead/thead";
-import * as calendar from '../Calendar/calendar'
+import Thead from "../Thead/thead";
+import * as calendar from '../calendar'
 import './tbody.css'
 
 export default class Tbody extends Component {
