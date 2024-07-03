@@ -1,0 +1,31 @@
+.calendar.active footer {
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  justify-content: center;
+  justify-items: center;
+  border-top: 2px solid lightgray;
+  margin-top: 8px;
+  padding-top: 10px;
+  width: 100%;
+}
+
+.calendar.active footer button {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border: 2px solid lightgray;
+  border-radius: 8px;
+  background-color: transparent;
+  padding: 1% 7%;
+  margin: 5% 3% 0 0;
+  cursor: pointer;
+}
+
+.calendar.active footer button:active,
+.calendar.active footer button:hover {
+  color: white;
+  background-color: rgb(16, 124, 130);
+  border-color: rgb(16, 124, 130);
+}
+
+.calendar.active footer button:last-of-type {
+  margin-right: 0;
+}
