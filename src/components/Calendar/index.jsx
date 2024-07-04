@@ -29,36 +29,38 @@ export default class Calendar extends React.Component {
     this.setState({ selectedDates: dates });
   }
 
-  // componentDidUpdate(prevProps) {
-  //   if (!prevProps.active && this.props.active) {
-  //     this.setState({
-  //       selectedDates: []
-  //     })
-  //   }
-  // }
+  componentDidUpdate(prevProps) {
+    if (!prevProps.active && this.props.active) {
+      this.setState({
+        selectedDates: []
+      })
+    }
+  }
 
   render() {
     return (
       <div
-        className={this.props.active ? 'modal active' : 'modal'}
+        className={this.props.active ? "modal active" : "modal"}
         onClick={() => this.props.setActive(false)}
       >
-        <div
-          className={this.props.active ? 'calendar active' : 'calendar'}
-          onClick={(e) => e.stopPropagation()}
-        >
-          <Header onChange={this.handleDateChange} />
-          <Tbody
-            date={this.state.date}
-            selectedDates={this.state.selectedDates}
-            onChange={this.handleFooterChange}
-          />
-          <Footer
-            date={this.state.date}
-            onChange={this.handleFooterChange}
-            selectedDates={this.state.selectedDates}
-          />
-        </div>
+        {this.props.active && (
+          <div
+            className={this.props.active ? "calendar active" : "calendar"}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Header onChange={this.handleDateChange} />
+            <Tbody
+              date={this.state.date}
+              selectedDates={this.state.selectedDates}
+              onChange={this.handleFooterChange}
+            />
+            <Footer
+              date={this.state.date}
+              onChange={this.handleFooterChange}
+              selectedDates={this.state.selectedDates}
+            />
+          </div>
+        )}
       </div>
     );
   }
